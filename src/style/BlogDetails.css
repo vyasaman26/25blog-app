@@ -1,0 +1,92 @@
+.details-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px 80px 20px;
+  background: #f5f5f7;
+}
+
+.details-card {
+  max-width: 680px;
+  width: 100%;
+  background: #ffffff;
+  padding: 60px 70px;
+  border-radius: 28px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+  transition: 0.3s ease;
+}
+
+.details-header {
+  margin-bottom: 20px;
+}
+
+.details-title {
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.6px;
+  margin-bottom: 12px;
+  color: #1d1d1f;
+}
+
+.details-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 14px;
+  color: #86868b;
+}
+
+.reading-time {
+  color: #6e6e73;
+}
+
+.details-divider {
+  border: none;
+  height: 1px;
+  background: #e5e5ea;
+  margin: 30px 0 40px 0;
+}
+
+.details-body {
+  font-size: 18px;
+  line-height: 1.9;
+  color: #333;
+}
+
+.details-body p {
+  margin-bottom: 22px;
+}
+
+.details-actions {
+  margin-top: 70px;
+  padding-top: 30px;
+  border-top: 1px solid #e5e5ea;
+  display: flex;
+  gap: 30px;
+  font-size: 15px;
+}
+
+.btn-edit {
+  background: none;
+  border: none;
+  color: #0071e3;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-edit:hover {
+  opacity: 0.7;
+}
+
+.btn-delete {
+  background: none;
+  border: none;
+  color: #d92d20;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-delete:hover {
+  opacity: 0.7;
+}
