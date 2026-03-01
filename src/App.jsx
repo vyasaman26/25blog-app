@@ -5,18 +5,29 @@ import CreateBlog from "./pages/CreateBlog";
 import EditBlog from "./pages/EditBlog";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
-import './style/Global.css'
+import ProtectedRoute from "./components/ProtectedRoute";
+import Login from "./pages/Login";
+import "./style/Global.css";
 
 function App() {
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blog/:id" element={<BlogDetails />} />
         <Route path="/create" element={<CreateBlog />} />
-        <Route path="/edit/:id" element={<EditBlog />} />
+        {/* <Route path="/edit/:id" element={<EditBlog />} /> */}
         <Route path="*" element={<NotFound />} />
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/edit/:id"
+          element={
+            <ProtectedRoute>
+              <EditBlog />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </>
   );
