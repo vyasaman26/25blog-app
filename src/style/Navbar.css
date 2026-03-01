@@ -43,3 +43,8 @@
   color: #0071e3;
   font-weight: 500;
 }
+.logout-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
