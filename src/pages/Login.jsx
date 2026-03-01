@@ -1,0 +1,33 @@
+import React, { useContext, useState } from "react";
+import authProvider, { AuthContext } from "../context/authProvider";
+import { useNavigate } from "react-router-dom";
+
+const Login = () => {
+  const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
+  const [email, setEmail] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    login(email);
+    navigate("/")
+  };
+
+  return (
+    <div>
+      <h2>login</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          placeholder="enter email"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  );
+};
+
+export default Login;
