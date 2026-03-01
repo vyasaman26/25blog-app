@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import '../style/Navbar.css'
+import { AuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
+  const {logout}=useContext(AuthContext)
   return (
    <nav className="navbar">
   <div className="nav-container">
@@ -16,6 +18,7 @@ const Navbar = () => {
       <NavLink to="/create" className="nav-link">
         Create
       </NavLink>
+      <p className="nav-link" onClick={logout}>Logout</p>
     </div>
   </div>
 </nav>
