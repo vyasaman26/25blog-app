@@ -17,7 +17,7 @@ const AuthProvider = ({ children }) => {
 
   const login = (userData) => {
     const fakeToken = "jwt-token" + Date.now();
-
+    
     setToken(fakeToken);
     setUser(userData);
 

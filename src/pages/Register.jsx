@@ -18,7 +18,8 @@ const Register = () => {
     }
 
     const newUser = { username, email, password };
-    localStorage.setItem("users", JSON.stringify(newUser));
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
 
     alert("registered successfully");
     navigate("/login");

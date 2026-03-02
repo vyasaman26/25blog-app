@@ -1,16 +1,20 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
+
   const { login } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const users = localStorage.getItem(JSON.parse("users")) || [];
+    const storedUsers = localStorage.getItem("users");
+    const users = storedUsers ? JSON.parse(storedUsers) : [];
+    console.log(typeof users);
+    console.log(users);
     const isRegisteredUser = users.find(
       (u) => u.email === email && u.password === password,
     );
@@ -20,6 +24,7 @@ const Login = () => {
       return;
     }
     login(isRegisteredUser);
+
     navigate("/");
   };
 

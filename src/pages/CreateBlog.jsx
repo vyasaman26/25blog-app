@@ -3,9 +3,11 @@ import { useState } from 'react'
 import { BlogContext } from '../context/BlogContext'
 import { Navigate, useNavigate } from 'react-router-dom'
 import '../style/CreateBlog.css'
+import { AuthContext } from '../context/AuthContext'
 
 const CreateBlog = () => {
   const {blogs,setBlogs}=useContext(BlogContext)
+  const {user}=useContext(AuthContext);
   const nevigate=useNavigate()
   const [title,setTitle]=useState("")
   const [content,setContent]=useState("")
@@ -16,6 +18,8 @@ const CreateBlog = () => {
       id:Date.now(),
       title,
       content,
+      author:user.username,
+      
     };
     setBlogs([...blogs,newBlog]);
     nevigate("/")

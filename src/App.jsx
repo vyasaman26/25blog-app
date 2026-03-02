@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./pages/Login";
 import "./style/Global.css";
+import Register from "./pages/Register";
 
 function App() {
   return (
@@ -16,7 +17,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blog/:id" element={<BlogDetails />} />
-        <Route path="/create" element={<CreateBlog />} />
+        <Route
+          path="/create"
+          element={
+            <ProtectedRoute>
+              <CreateBlog />
+            </ProtectedRoute>
+          }
+        />
         {/* <Route path="/edit/:id" element={<EditBlog />} /> */}
         <Route path="*" element={<NotFound />} />
         <Route path="/login" element={<Login />} />
@@ -28,6 +36,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/register" element={<Register/>}/>
       </Routes>
     </>
   );
