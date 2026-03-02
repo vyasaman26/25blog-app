@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useLocation, useNavigate } from "react-router-dom";
+import "../style/Auth.css";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -28,28 +29,33 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>login</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="enter email"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
-        <input
-          type="password"
-          placeholder="enter password"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-        <button type="submit">Login</button>
-      </form>
-    </div>
+<div className="auth-wrapper">
+  <div className="auth-card">
+    <h2 className="auth-title">Login</h2>
+
+    <form onSubmit={handleSubmit} className="auth-form">
+      <input
+        type="email"
+        placeholder="Enter email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="auth-input"
+      />
+
+      <input
+        type="password"
+        placeholder="Enter password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        className="auth-input"
+      />
+
+      <button type="submit" className="auth-btn">
+        Login
+      </button>
+    </form>
+  </div>
+</div>
   );
 };
 
