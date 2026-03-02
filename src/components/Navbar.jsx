@@ -28,6 +28,16 @@ const Navbar = () => {
               Logout
             </button>
           )}
+           {!token && (
+            <>
+              <NavLink to="/login" className="nav-link">
+                Login
+              </NavLink>
+              <NavLink to="/register" className="nav-link">
+                Register
+              </NavLink>
+            </>
+          )}
         </div>
       </div>
     </nav>
