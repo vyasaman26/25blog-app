@@ -20,7 +20,7 @@ const Login = () => {
     );
 
     if (!isRegisteredUser) {
-      alert("invalid credential");
+      alert("invalid credential can't login");
       return;
     }
     login(isRegisteredUser);
