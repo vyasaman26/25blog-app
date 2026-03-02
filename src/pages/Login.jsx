@@ -13,8 +13,7 @@ const Login = () => {
     e.preventDefault();
     const storedUsers = localStorage.getItem("users");
     const users = storedUsers ? JSON.parse(storedUsers) : [];
-    console.log(typeof users);
-    console.log(users);
+
     const isRegisteredUser = users.find(
       (u) => u.email === email && u.password === password,
     );

@@ -10,7 +10,7 @@ const BlogDetails = () => {
   const { id } = useParams();
   const { blogs, setBlogs } = useContext(BlogContext);
   const blog = blogs.find((b) => b.id === Number(id));
-  const { token } = useContext(AuthContext);
+  const { user, token } = useContext(AuthContext);
 
   const handleDelete = () => {
     const filteredBlog = blogs.filter((b) => b.id !== Number(id));
@@ -24,13 +24,11 @@ const BlogDetails = () => {
           <h1 className="details-title">{blog.title}</h1>
 
           <div className="details-meta">
-            <span>By Aman Vyas</span>
+            <span>By {blog.author}</span>
             <span>•</span>
             <span>{new Date(blog.date).toDateString()}</span>
             <span>•</span>
-            <span className="reading-time">
-              {Math.ceil(blog.content.split(" ").length / 200)} min read
-            </span>
+            <span className="reading-time">min read</span>
           </div>
         </div>
 
@@ -39,14 +37,14 @@ const BlogDetails = () => {
         <div className="details-body">
           <p>{blog.content}</p>
         </div>
-        {token && (
+        {token && user.username === blog.author && (
           <div className="details-actions">
             <Link to={`/edit/${blog.id}`} className="btn-edit">
-              ✏ Edit
+              Edit
             </Link>
 
             <button onClick={handleDelete} className="btn-delete">
-              🗑 Delete
+              Delete
             </button>
           </div>
         )}
